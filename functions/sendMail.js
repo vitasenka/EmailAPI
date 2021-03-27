@@ -7,6 +7,6 @@ exports.handler = async function (event, context, callback) {
   const { SENDINBLUE_API_KEY } = process.env;
   return {
     statusCode: 200,
-    body: JSON.stringify({ message: process.env }),
+    body: JSON.stringify({ message: SENDINBLUE_API_KEY }),
   };
 };
