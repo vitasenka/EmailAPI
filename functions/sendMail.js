@@ -13,17 +13,25 @@ exports.handler = async function (event, context, callback) {
   var createContact = new SibApiV3Sdk.CreateContact(); // CreateContact | Values to create a contact
   createContact = { email: "john@doe.com" };
 
-  apiInstance.createContact(createContact).then(
+  // apiInstance.createContact(createContact).then(
+  //   function (data) {
+  //     console.log("API called successfully. Returned data: " + data);
+  //   },
+  //   function (error) {
+  //     console.error(error);
+  //   }
+  // );
+
+  var api = new SibApiV3Sdk.AccountApi();
+  api.getAccount().then(
     function (data) {
-      console.log("API called successfully. Returned data: " + data);
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ message: data }),
+      };
     },
     function (error) {
       console.error(error);
     }
   );
-  console.log("hi");
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ message: SENDINBLUE_API_KEY }),
-  };
 };
