@@ -1,0 +1,4 @@
+# Project entries
+.env
+node_modules/
+build/
