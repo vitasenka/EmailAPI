@@ -27,7 +27,7 @@ exports.handler = async function (event, context, callback) {
     function (data) {
       return {
         statusCode: 200,
-        body: JSON.stringify({ message: data }),
+        body: JSON.stringify(data),
       };
     },
     function (error) {
