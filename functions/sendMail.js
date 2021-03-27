@@ -1,4 +1,4 @@
-// const sendinBlueApi = require("sib-api-v3-sdk");
+const sendinBlueApi = require("sib-api-v3-sdk");
 
 // const client = sendinBlueApi.ApiClient.instance();
 const { SENDINBLUE_API_KEY } = process.env;
