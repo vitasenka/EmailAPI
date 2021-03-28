@@ -23,7 +23,7 @@ const SibApiV3Sdk = require("sib-api-v3-sdk");
 
 // handler();
 
-exports.handler = function (event, context) {
+exports.handler = async function (event, context) {
   const { SENDINBLUE_API_KEY } = process.env;
   const defaultClient = SibApiV3Sdk.ApiClient.instance;
   var apiKey = defaultClient.authentications["api-key"];
