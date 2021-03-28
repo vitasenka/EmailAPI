@@ -32,7 +32,7 @@ exports.handler = async function (event, context) {
 
   var createContact = new SibApiV3Sdk.CreateContact();
   createContact = { email: "johnWick12@doe.com" };
-  console.log(SENDINBLUE_API_KEY);
+  console.log(createContact);
   apiInstance
     .createContact(createContact)
     .then(function (data) {
