@@ -31,18 +31,20 @@ exports.handler = async function (event, context) {
   var apiInstance = new SibApiV3Sdk.ContactsApi();
 
   var createContact = new SibApiV3Sdk.CreateContact();
-  createContact = { email: "johnWick@doe.com" };
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ message: "Hello World" }),
-  };
+  createContact = { email: "johnWick12@doe.com" };
 
-  // apiInstance.createContact(createContact).then(
-  //   function (data) {
-  //     return "API called successfully. Returned data";
-  //   },
-  //   function (error) {
-  //     return "error";
-  //   }
-  // );
+  apiInstance.createContact(createContact).then(
+    function (data) {
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ message: data }),
+      };
+    },
+    function (error) {
+      return {
+        statusCode: 100,
+        body: JSON.stringify({ message: error }),
+      };
+    }
+  );
 };
