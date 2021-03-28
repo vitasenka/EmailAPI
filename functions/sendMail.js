@@ -28,24 +28,34 @@ exports.handler = async function (event, context) {
   const defaultClient = SibApiV3Sdk.ApiClient.instance;
   var apiKey = defaultClient.authentications["api-key"];
   apiKey.apiKey = SENDINBLUE_API_KEY;
-  var apiInstance = new SibApiV3Sdk.ContactsApi();
 
-  var createContact = new SibApiV3Sdk.CreateContact();
-  createContact = { email: "johnWick12@doe.com" };
-  apiInstance
-    .createContact(createContact)
-    .then(function (data) {
-      console.log(data, "data");
-      return {
-        statusCode: 200,
-        body: JSON.stringify({ message: data }),
-      };
-    })
-    .catch(function (error) {
-      console.log(error, "err");
-      return {
-        statusCode: 100,
-        body: JSON.stringify({ message: error }),
-      };
-    });
+  var api = new SibApiV3Sdk.AccountApi();
+  api.getAccount().then(
+    function (data) {
+      console.log("API called successfully. Returned data: " + data);
+    },
+    function (error) {
+      console.error(error);
+    }
+  );
+  // var apiInstance = new SibApiV3Sdk.ContactsApi();
+
+  // var createContact = new SibApiV3Sdk.CreateContact();
+  // createContact = { email: "johnWick12@doe.com" };
+  // apiInstance
+  //   .createContact(createContact)
+  //   .then(function (data) {
+  //     console.log(data, "data");
+  //     return {
+  //       statusCode: 200,
+  //       body: JSON.stringify({ message: data }),
+  //     };
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error, "err");
+  //     return {
+  //       statusCode: 100,
+  //       body: JSON.stringify({ message: error }),
+  //     };
+  //   });
 };
