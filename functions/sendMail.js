@@ -32,16 +32,17 @@ exports.handler = async function (event, context) {
 
   var createContact = new SibApiV3Sdk.CreateContact();
   createContact = { email: "johnWick12@doe.com" };
-  console.log(createContact);
   apiInstance
     .createContact(createContact)
     .then(function (data) {
+      console.log(data, "data");
       return {
         statusCode: 200,
         body: JSON.stringify({ message: data }),
       };
     })
     .catch(function (error) {
+      console.log(error, "err");
       return {
         statusCode: 100,
         body: JSON.stringify({ message: error }),
