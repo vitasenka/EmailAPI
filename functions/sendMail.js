@@ -36,10 +36,10 @@ exports.handler = async function (event, context) {
 
   apiInstance.createContact(createContact).then(
     function (data) {
-      return "API called successfully. Returned data: " + data;
+      return "API called successfully. Returned data";
     },
     function (error) {
-      return error;
+      return "error";
     }
   );
 };
