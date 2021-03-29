@@ -22,12 +22,12 @@ exports.handler = function (event, context, callback) {
       function (data) {
         callback(null, {
           status: 200,
-          message: JSON.strigify(data),
+          body: JSON.stringify({ message: data }),
         });
       },
       function (error) {
         callback({
-          message: JSON.strigify(error),
+          body: JSON.stringify({ message: error }),
         });
       }
     );
