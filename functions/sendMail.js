@@ -28,6 +28,7 @@ exports.handler = function (event, context, callback) {
         });
       },
       function (error) {
+        console.log(JSON.stringify(error));
         callback({
           body: JSON.stringify({ message: error }),
         });
