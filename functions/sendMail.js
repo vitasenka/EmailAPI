@@ -28,9 +28,12 @@ exports.handler = function (event, context, callback) {
   transporter
     .sendMail(message)
     .then((info) => {
-      callback(null, JSON.stringify(info));
+      callback(null, {
+        statusCode: 200,
+        body: JSON.stringify({ message: info }),
+      });
     })
     .catch((err) => {
-      callback(JSON.stringify(err));
+      callback(JSON.stringify({ message: err }));
     });
 };
