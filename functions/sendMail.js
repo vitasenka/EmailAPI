@@ -9,15 +9,17 @@ exports.handler = function (event, context, callback) {
   var emailApi = new SibApiV3Sdk.TransactionalEmailsApi();
 
   emailApi
-    .sendTransacEmail({
-      subject: "My first Email",
-      sender: { name: "Pirooz", email: "piroozamirpour@gmail.com" },
-      replyTo: { name: "Pirooz", email: "piroozamirpour@gmail.com" },
-      to: { name: "victor", email: "victoramirpour@gmail.com" },
-      htmlContent:
-        "<html><body><h1>This is a transactional email {{params.bodyMessage}}</h1></body></html>",
-      params: { bodyMessage: "Made just for you!" },
-    })
+    .sendTransacEmail(
+      JSON.stringify({
+        subject: "My first Email",
+        sender: { name: "Pirooz", email: "piroozamirpour@gmail.com" },
+        replyTo: { name: "Pirooz", email: "piroozamirpour@gmail.com" },
+        to: { name: "victor", email: "victoramirpour@gmail.com" },
+        htmlContent:
+          "<html><body><h1>This is a transactional email {{params.bodyMessage}}</h1></body></html>",
+        params: { bodyMessage: "Made just for you!" },
+      })
+    )
     .then(
       function (data) {
         callback(null, {
