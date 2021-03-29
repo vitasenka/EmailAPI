@@ -7,9 +7,10 @@ exports.handler = async function (event, context, callback) {
   apiKey.apiKey = SENDINBLUE_API_KEY;
 
   var api = new SibApiV3Sdk.AccountApi();
-  const data = await api.getAccount();
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ message: data }),
-  };
+  api.getAccount().then((data) => {
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ message: data }),
+    };
+  });
 };
