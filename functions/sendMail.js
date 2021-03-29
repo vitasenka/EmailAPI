@@ -9,13 +9,10 @@ exports.handler = function (event, context, callback) {
   var api = new SibApiV3Sdk.AccountApi();
   api.getAccount().then(
     function (data) {
-      callback(
-        null,
-        JSON.stringify({
-          statusCode: 200,
-          body: JSON.stringify({ message: "Hello World" }),
-        })
-      );
+      callback(null, {
+        statusCode: 200,
+        body: JSON.stringify({ message: "Hello World" }),
+      });
     },
     function (error) {
       console.error(error);
