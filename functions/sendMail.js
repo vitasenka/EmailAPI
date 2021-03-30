@@ -1,11 +1,11 @@
 const nodemailer = require("nodemailer");
-const { user, password } = process.env;
+const { user, pass } = process.env;
 
 let transporter = nodemailer.createTransport({
   service: "Gmail",
   auth: {
-    user: "witasenka@gmail.com",
-    password: "860239387",
+    user,
+    pass,
   },
 });
 
@@ -14,16 +14,8 @@ const message = {
   to: "piroozamirpour@gmail.com",
   subject: "My firs email",
   text: "Hi. I'm just testing my nodemailer function",
+  html: "<p>Hi. I'm just testing my nodemailer function</p>",
 };
-
-transporter
-  .sendMail(message)
-  .then((info) => {
-    console.log(JSON.stringify(info));
-  })
-  .catch((err) => {
-    console.log(JSON.stringify(err));
-  });
 
 exports.handler = function (event, context, callback) {
   transporter
