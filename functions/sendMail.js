@@ -1,3 +1,4 @@
+const EventEmitter = require("node:events");
 const nodemailer = require("nodemailer");
 const { user, pass } = process.env;
 
@@ -14,6 +15,7 @@ let mailOptions = {
 };
 
 exports.handler = function (event, context, callback) {
+  console.log(event);
   const { name, email, phone, message } = event.query;
   mailOptions = {
     ...mailOptions,
