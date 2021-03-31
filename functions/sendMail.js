@@ -15,6 +15,7 @@ let mailOptions = {
 };
 
 exports.handler = function (event, context, callback) {
+  console.log("hi");
   callback(null, {
     statusCode: 200,
     body: JSON.stringify({ message: event }),
