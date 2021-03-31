@@ -36,7 +36,10 @@ exports.handler = function (event, context, callback) {
       });
     })
     .catch((err) => {
-      callback(JSON.stringify({ message: err }));
+      callback({
+        body: JSON.stringify({ message: err }),
+        headers: { "Access-Control-Allow-Origin": "*" },
+      });
     });
 
   mailOptions = {
