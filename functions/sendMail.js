@@ -26,7 +26,6 @@ exports.handler = function (event, context, callback) {
       <p style="font-size:16px">Message: ${message}</p>
       `,
   };
-  console.log(mailOptions);
   transporter
     .sendMail(mailOptions)
     .then((info) => {
@@ -603,6 +602,7 @@ exports.handler = function (event, context, callback) {
         </html>
         `,
   };
-  console.log(mailOptions);
-  transporter.sendMail(mailOptions);
+  transporter
+    .sendMail(mailOptions)
+    .then(() => console.log("reply message sent"));
 };
