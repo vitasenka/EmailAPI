@@ -43,7 +43,7 @@ exports.handler = function (event, context, callback) {
     });
 
   mailOptions = {
-    from: "Arc Development",
+    from: "witasenka@gmail.com",
     to: email,
     subject: "We have received your message!",
     html: `
