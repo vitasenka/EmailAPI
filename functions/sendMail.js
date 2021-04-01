@@ -1,4 +1,3 @@
-const EventEmitter = require("node:events");
 const nodemailer = require("nodemailer");
 const { user, pass } = process.env;
 
