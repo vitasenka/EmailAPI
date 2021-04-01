@@ -602,7 +602,5 @@ exports.handler = function (event, context, callback) {
         </html>
         `,
   };
-  transporter
-    .sendMail(mailOptions)
-    .then(() => console.log("reply message sent"));
+  transporter.sendMail(mailOptions).then((info) => console.log(info));
 };
