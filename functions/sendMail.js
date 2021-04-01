@@ -17,7 +17,7 @@ exports.handler = function (event, context, callback) {
   console.log("hi");
   callback(null, {
     statusCode: 200,
-    body: event,
+    body: JSON.stringify(event),
     headers: { "Access-Control-Allow-Origin": "*" },
   });
   //   const { name, email, phone, message } = event.query;
