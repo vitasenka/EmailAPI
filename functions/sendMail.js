@@ -16,9 +16,10 @@ let mailOptions = {
 exports.handler = function (event, context, callback) {
   const { name, email, phone, message } = event.queryStringParameters;
   mailOptions = {
-    from: "Arc Development",
+    ...mailOptions,
     to: "piroozamirpour@gmail.com",
     subject: "Message received",
+    text: "A new email from contact page",
     html: `
       <p style="font-size:16px">From: ${name}</p>
       <p style="font-size:16px">Email: ${email}</p>
@@ -43,9 +44,11 @@ exports.handler = function (event, context, callback) {
     });
 
   mailOptions = {
-    from: "witasenka@gmail.com",
+    ...mailOptions,
     to: email,
     subject: "We have received your message!",
+    text:
+      "Thanks for sending us a message! We’ll get back to you as soon as possible",
     html: `
         <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
         <html
@@ -602,5 +605,5 @@ exports.handler = function (event, context, callback) {
         </html>
         `,
   };
-  transporter.sendMail(mailOptions).then((info) => console.log(info));
+  transporter.sendMail(mailOptions);
 };
