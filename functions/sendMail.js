@@ -16,7 +16,7 @@ let mailOptions = {
 exports.handler = function (event, context, callback) {
   const { name, email, phone, message } = event.queryStringParameters;
   mailOptions = {
-    ...mailOptions,
+    from: "Arc Development",
     to: "piroozamirpour@gmail.com",
     subject: "Message received",
     html: `
@@ -43,7 +43,7 @@ exports.handler = function (event, context, callback) {
     });
 
   mailOptions = {
-    ...mailOptions,
+    from: "Arc Development",
     to: email,
     subject: "We have received your message!",
     html: `
